@@ -21,11 +21,8 @@
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-    <link href="asset/css/custom.css" rel="stylesheet">
 
-    <script src="asset/js/respond.min.js"></script>
 </head>
 
 <body>

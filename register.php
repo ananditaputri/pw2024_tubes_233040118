@@ -6,27 +6,10 @@
 <html lang="en">
 <head>
     <title>Login MnCo</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Menyertakan favicon -->
-    <!-- <link rel="icon" type="image/png" href="logo.png"/> -->
+
     <!-- Menyertakan file CSS bootstrap -->
     <link rel="stylesheet" type="text/css" href="asset/login/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Menyertakan file CSS font-awesome -->
-    <link rel="stylesheet" type="text/css" href="asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Menyertakan file CSS material-design-iconic-font -->
     <link rel="stylesheet" type="text/css" href="asset/login/fonts/iconic/css/material-design-iconic-font.min.css">
-    <!-- Menyertakan file CSS animate -->
-    <link rel="stylesheet" type="text/css" href="asset/login/vendor/animate/animate.css">
-    <!-- Menyertakan file CSS hamburgers -->
-    <link rel="stylesheet" type="text/css" href="asset/login/vendor/css-hamburgers/hamburgers.min.css">
-    <!-- Menyertakan file CSS animsition -->
-    <link rel="stylesheet" type="text/css" href="asset/login/vendor/animsition/css/animsition.min.css">
-    <!-- Menyertakan file CSS select2 -->
-    <link rel="stylesheet" type="text/css" href="asset/login/vendor/select2/select2.min.css">
-    <!-- Menyertakan file CSS daterangepicker -->
-    <link rel="stylesheet" type="text/css" href="asset/login/vendor/daterangepicker/daterangepicker.css">
-    <!-- Menyertakan file CSS util dan main -->
     <link rel="stylesheet" type="text/css" href="asset/login/css/util.css">
     <link rel="stylesheet" type="text/css" href="asset/login/css/main.css">
 </head>
@@ -133,13 +116,6 @@
        
     <!-- Menyertakan file JavaScript -->
     <script src="asset/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="asset/login/vendor/animsition/js/animsition.min.js"></script>
-    <script src="asset/login/vendor/bootstrap/js/popper.js"></script>
-    <script src="asset/login/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="asset/login/vendor/select2/select2.min.js"></script>
-    <script src="asset/login/vendor/daterangepicker/moment.min.js"></script>
-    <script src="asset/login/vendor/daterangepicker/daterangepicker.js"></script>
-    <script src="asset/login/vendor/countdowntime/countdowntime.js"></script>
     <script src="asset/login/js/main.js"></script>
 </body>
 </html>

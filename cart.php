@@ -1,17 +1,20 @@
 <?php 
-session_start();
-error_reporting(0);
+session_start(); // Memulai sesi
+
+// Menyertakan file koneksi dan protect untuk memastikan hanya pengguna yang sah yang dapat mengakses halaman ini
 include 'koneksi.php';
 include 'protect.php';
 
+// Mengecek apakah keranjang belanja kosong
 if (!$_SESSION['keranjang']) {
     echo "<script>alert('Keranjang Kosong! Silahkan belanja dulu')</script>";
     echo "<script>location='all-menu.php'</script>";
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
@@ -19,20 +22,21 @@ if (!$_SESSION['keranjang']) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <title>MnCo</title>
+    
+    <!-- Menyertakan berbagai stylesheet untuk tampilan website -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
     <link href="asset/css/font-awesome.css" rel="stylesheet">
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-    <link href="asset/css/custom.css" rel="stylesheet">
-    <script src="asset/js/respond.min.js"></script>
-
+    
     <style>
+        /* Mengatur margin bawah konten */
         #content {
             margin-bottom: 54px;
         }
+        /* Mengatur posisi dan tampilan footer */
         #copyright {
             position: fixed;
             left: 0;
@@ -43,6 +47,7 @@ if (!$_SESSION['keranjang']) {
             font-size: 12px;
             text-align: center;
         }
+        /* Mengatur tampilan untuk layar kecil */
         @media (max-width: 991px) {
             #content {
                 margin-bottom: 54px;
@@ -55,23 +60,25 @@ if (!$_SESSION['keranjang']) {
 </head>
 
 <body>
-    <!-- TOPBAR -->
+    <!-- Bagian Topbar -->
     <div id="top">
         <div class="container">
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
+                    <!-- Menampilkan nama pelanggan yang login dan link logout -->
                     <li><a href="profile.php">Welcome, <?php echo $_SESSION['login']['nama_pelanggan']; ?></a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <!-- END OF TOPBAR -->
+    <!-- Akhir dari Topbar -->
 
-    <!-- NAVBAR -->
+    <!-- Bagian Navbar -->
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
         <div class="container">
             <div class="navbar-header">
+                <!-- Tombol untuk membuka navigasi pada tampilan mobile -->
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -83,6 +90,7 @@ if (!$_SESSION['keranjang']) {
                 </div>
             </div>
 
+            <!-- Bagian navigasi -->
             <div class="navbar-collapse collapse" id="navigation">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="index.php">Home</a></li>
@@ -92,10 +100,13 @@ if (!$_SESSION['keranjang']) {
                 </ul>
             </div>
 
+            <!-- Menampilkan jumlah item dalam keranjang belanja -->
             <div class="navbar-buttons">
                 <?php
+                // Mengecek apakah keranjang belanja kosong
                 if (!$_SESSION['keranjang']) {
                 ?>
+                    <!-- Jika keranjang kosong, menampilkan tombol keranjang belanja tanpa jumlah item -->
                     <div class="navbar-collapse collapse right" id="basket-overview">
                         <a href="cart.php" class="btn btn-primary navbar-btn">
                             <i class="fa fa-shopping-cart"></i><span class="hidden-sm">Keranjang Belanja</span>
@@ -103,11 +114,13 @@ if (!$_SESSION['keranjang']) {
                     </div>
                 <?php
                 } else {
+                    // Jika keranjang tidak kosong, menghitung jumlah item dalam keranjang
                     $item = count($_SESSION['keranjang']);
                 ?>
+                    <!-- Menampilkan tombol keranjang belanja dengan jumlah item yang ada di dalam keranjang -->
                     <div class="navbar-collapse collapse right" id="basket-overview">
                         <a href="cart.php" class="btn btn-primary navbar-btn">
-                            <i class="fa fa-shopping-cart"></i><span class="hidden-sm">Keranjang Belanja (<?php echo $item;?>)</span>
+                            <i class="fa fa-shopping-cart"></i><span class="hidden-sm">Keranjang Belanja (<?php echo $item; ?>)</span>
                         </a>
                     </div>
                 <?php
@@ -116,7 +129,7 @@ if (!$_SESSION['keranjang']) {
             </div>
         </div>
     </div>
-    <!-- END OF NAVBAR -->
+    <!-- Akhir dari Navbar -->
 
     <div id="all">
         <div id="content">
@@ -138,14 +151,18 @@ if (!$_SESSION['keranjang']) {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- Menginisiasi total harga pembelian -->
                                         <?php $total = 0; ?>
+                                        <!-- Looping melalui setiap item dalam keranjang belanja -->
                                         <?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?>
+                                            <!-- Mengambil data produk dari database -->
                                             <?php 
                                             $query = $conn->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
                                             $data = $query->fetch_assoc();
                                             $subharga = $data['harga_produk'] * $jumlah;
                                             ?>
                                             <tr>
+                                                <!-- Menampilkan informasi produk dalam tabel -->
                                                 <td><img src="foto_produk/<?php echo $data['foto_produk']; ?>" alt=""></td>
                                                 <td><?php echo $data['nama_produk']; ?></td>
                                                 <td><?php echo $jumlah; ?></td>
@@ -153,11 +170,13 @@ if (!$_SESSION['keranjang']) {
                                                 <td>Rp.<?php echo number_format($subharga); ?></td>
                                                 <td><a href="hapuskeranjang.php?id=<?php echo $id_produk ?>"><i class="fa fa-trash-o"></i>Hapus</a></td>
                                             </tr>
+                                            <!-- Menambahkan subharga ke total harga -->
                                             <?php $total += $subharga; ?>
                                         <?php endforeach; ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <!-- Menampilkan total harga pembelian -->
                                             <th colspan="4">Total Pembelian:</th>
                                             <th colspan="2">Rp.<?php echo number_format($total); ?></th>
                                         </tr>
@@ -172,6 +191,7 @@ if (!$_SESSION['keranjang']) {
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary" name="checkout">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
                                     <?php 
+                                    // Mengecek stok saat pengguna melakukan checkout
                                     if (isset($_POST['checkout'])) {
                                         $stok = $data['stok'];
                                         $stokupdate = $stok - $jumlah;
@@ -190,7 +210,7 @@ if (!$_SESSION['keranjang']) {
             </div>
         </div>
 
-        <!-- COPYRIGHT -->
+        <!-- Bagian Footer -->
         <div id="copyright">
             <div class="container">
                 <div class="col-md-6">
@@ -201,12 +221,12 @@ if (!$_SESSION['keranjang']) {
                 </div>
             </div>
         </div>
-        <!-- END OF COPYRIGHT -->
+        <!-- Akhir dari Footer -->
 
     </div>
-    <!-- END OF #all -->
+    <!-- Akhir dari #all -->
 
-    <!-- SCRIPTS -->
+    <!-- Menyertakan berbagai script JavaScript -->
     <script src="asset/js/jquery-1.11.0.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="asset/js/jquery.cookie.js"></script>

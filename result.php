@@ -10,16 +10,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
 
-    <title>
-        MnCo
-    </title>
+    <title>MnCo</title>
 
     <meta name="keywords" content="">
 
@@ -30,18 +27,7 @@
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
-
-    <!-- theme stylesheet -->
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
-    <!-- your stylesheet with modifications -->
-    <link href="asset/css/custom.css" rel="stylesheet">
-
-    <script src="asset/js/respond.min.js"></script>
-
-    <!-- <link rel="shortcut icon" href="logo.png"> -->
-
 </head>
 
 <body>
@@ -62,17 +48,11 @@
 
     <!-- *** TOP BAR END *** -->
 
-    <!-- *** NAVBAR ***
- _________________________________________________________ -->
+    <!-- *** NAVBAR *** -->
 
  <div class="navbar navbar-default yamm" role="navigation" id="navbar">
     <div class="container">
         <div class="navbar-header">
-
-                <!-- <a class="navbar-brand home" href="index.php" data-animate-hover="bounce">
-                    <img src="logo.png" class="hidden-xs">
-                    <img src="logo.png" class="visible-xs"><span class="sr-only">MnCo - go to homepage</span>
-                </a> -->
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -268,8 +248,7 @@
 
     
 
-    <!-- *** SCRIPTS TO INCLUDE BOOTSTRAP YA SEMUANYA HTML CSS LESS JS ***
- _________________________________________________________ -->
+    <!-- *** SCRIPTS TO INCLUDE BOOTSTRAP SEMUANYA JS *** -->
  <script src="asset/js/jquery-1.11.0.min.js"></script>
  <script src="asset/js/bootstrap.min.js"></script>
  <script src="asset/js/jquery.cookie.js"></script>

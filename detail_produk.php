@@ -46,10 +46,7 @@ if (isset($_POST['unliked'])) {
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-    <link href="asset/css/custom.css" rel="stylesheet">
-    <script src="asset/js/respond.min.js"></script>
 </head>
 
 <body>
@@ -239,6 +236,7 @@ if (isset($_POST['unliked'])) {
     <script src="asset/js/bootstrap-hover-dropdown.js"></script>
     <script src="asset/js/owl.carousel.min.js"></script>
     <script src="asset/js/front.js"></script>
+    
     <script type="text/javascript">
         $(document).ready(function() {
             // Like button click handler

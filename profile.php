@@ -11,9 +11,9 @@ include 'koneksi.php';
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
-    <title>
-        MnCo
-    </title>
+
+    <title>MnCo</title>
+
     <meta name="keywords" content="">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
     <!-- styles -->
@@ -21,13 +21,7 @@ include 'koneksi.php';
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
-    <!-- theme stylesheet -->
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-    <!-- your stylesheet with modifications -->
-    <link href="asset/css/custom.css" rel="stylesheet">
-    <script src="asset/js/respond.min.js"></script>
-    <!-- <link rel="shortcut icon" href="logo.png"> -->
     <style>
         #copyright {
             position: fixed;
@@ -301,7 +295,7 @@ include 'koneksi.php';
     </div>
     <!-- /#all -->
 
-    <!-- *** SCRIPTS TO INCLUDE *** -->
+    <!-- *** SCRIPTS TO INCLUDE BOOTSTRAP *** -->
     <script src="asset/js/jquery-1.11.0.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="asset/js/jquery.cookie.js"></script>

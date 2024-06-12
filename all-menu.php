@@ -1,6 +1,11 @@
 <?php
+    // Memulai sesi untuk melacak pengguna yang login
     session_start();
+
+    // Menyertakan file koneksi ke database
     include 'koneksi.php';
+
+    // Menyertakan file perlindungan akses (mungkin untuk memastikan hanya pengguna terotorisasi yang dapat mengakses halaman ini)
     include 'protect.php';
 ?>
 <!DOCTYPE html>
@@ -19,31 +24,31 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
     
-    <!-- Stylesheets -->
+    <!-- Menyertakan bootstrap stylesheet -->
     <link href="asset/css/font-awesome.css" rel="stylesheet">
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-    <link href="asset/css/custom.css" rel="stylesheet">
     
-    <script src="asset/js/respond.min.js"></script>
-    
-    <!-- JQuery -->
+    <!-- Menyertakan jQuery -->
     <script src="asset/js/jquery-1.11.0.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
+            // Menambahkan event handler untuk tombol pencarian
             $("#button_find").click(function(event) {
                 event.preventDefault();
                 ajax_search();
             });
+            // Menambahkan event handler untuk input pencarian
             $("#search_query").keyup(function(event) {
                 event.preventDefault();
                 ajax_search();
             });
         });
 
+        // Fungsi untuk melakukan pencarian AJAX
         function ajax_search() {
             var judul = $("#search_query").val();
             $.ajax({
@@ -63,6 +68,7 @@
         <div class="container">
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
+                    <!-- Menampilkan nama pelanggan yang login -->
                     <li><a href="profile.php">Welcome, <?php echo $_SESSION['login']['nama_pelanggan']; ?></a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
@@ -75,14 +81,17 @@
         <div class="container">
             <div class="navbar-header">
                 <div class="navbar-buttons">
+                    <!-- Tombol untuk men-toggle navigasi -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-align-justify"></i>
                     </button>
+                    <!-- Tombol untuk men-toggle pencarian -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
+                    <!-- Tombol untuk melihat keranjang belanja -->
                     <a class="btn btn-default navbar-toggle" href="cart.php">
                         <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">Keranjang Belanja</span>
                     </a>
@@ -124,6 +133,7 @@
                 </div>
             </div>
 
+            <!-- Form pencarian -->
             <div class="collapse clearfix" id="search">
                 <form class="navbar-form" role="search">
                     <div class="input-group">
@@ -147,13 +157,18 @@
                 <div class="col-md-12">
                     <div class="row products">
                         <?php
+                        // Pengaturan paginasi
                         $halaman = 8;
                         $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
                         $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
+
+                        // Mengambil data produk dengan batasan sesuai paginasi
                         $query = $conn->query("SELECT*FROM produk LIMIT $mulai, $halaman") OR die($conn->error);
                         $sql = $conn->query("SELECT*FROM produk");
                         $total = $sql->num_rows;
-                        $pages = ceil($total / $halaman);    
+                        $pages = ceil($total / $halaman);
+
+                        // Loop melalui setiap produk untuk ditampilkan
                         while ($data = $query->fetch_assoc()) {   
                         ?>
                             <div class="col-md-3 col-sm-4">
@@ -216,7 +231,7 @@
         </div>
     </div>
 
-    <!-- Scripts to include -->
+    <!-- Scripts untuk termasuk ke halaman -->
     <script src="asset/js/jquery-1.11.0.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="asset/js/jquery.cookie.js"></script>

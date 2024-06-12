@@ -22,26 +22,13 @@
     <title>MnCo</title>
     <meta name="keywords" content="">
 
-    <!-- Menggunakan font dari Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
-    <!-- Menyertakan berbagai stylesheet untuk tampilan website -->
     <link href="asset/css/font-awesome.css" rel="stylesheet">
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/owl.carousel.css" rel="stylesheet">
-    <link href="asset/css/owl.theme.css" rel="stylesheet">
-
-    <!-- Stylesheet tema utama -->
     <link href="asset/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
-    <!-- Stylesheet khusus untuk modifikasi -->
-    <link href="asset/css/custom.css" rel="stylesheet">
-
-    <!-- Menyertakan script JavaScript -->
-    <script src="asset/js/respond.min.js"></script>
-
-    <!-- <link rel="shortcut icon" href="logo.png"> -->
 </head>
 
 <body>
